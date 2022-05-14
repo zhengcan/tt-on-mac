@@ -8,7 +8,7 @@ if [[ ! -x $(command -v $DOSBOX) ]]; then
 		DOSBOX_X_VERSION=0.83.25
 		DOSBOX_X_BUILDNO=20220501074941
 		ARCH=$(arch)
-		if [[ $ARCH === "i386" ]]; then
+		if [[ $ARCH == "i386" ]]; then
 			ARCH="x86_64"
 		fi
 		wget -P tt_temp https://github.com/joncampbell123/dosbox-x/releases/download/dosbox-x-v${DOSBOX_X_VERSION}/dosbox-x-macosx-$(arch)-${DOSBOX_X_BUILDNO}.zip
