@@ -7,6 +7,10 @@ if [[ ! -x $(command -v $DOSBOX) ]]; then
 	if [[ ! -e $DOSBOX ]]; then
 		DOSBOX_X_VERSION=0.83.25
 		DOSBOX_X_BUILDNO=20220501074941
+		if [[ "$OSTYPE" != "darwin"* ]]; then
+			echo "Unsupported platform"
+			exit 1
+		fi
 		ARCH=$(arch)
 		if [[ $ARCH == "i386" ]]; then
 			ARCH="x86_64"
@@ -19,8 +23,7 @@ if [[ ! -x $(command -v $DOSBOX) ]]; then
 fi
 
 # Prepare TT
-TT=tt/TT.exe
-if [[ ! -e $TT ]]; then
+if [[ ! -e tt/TT.* ]]; then
 	wget -P tt https://raw.githubusercontent.com/zhengcan/tt-on-mac/master/tt.zip
 	unzip tt/*.zip -d tt
 	rm tt/*.zip
@@ -29,6 +32,7 @@ fi
 # Download self
 if [[ ! -e `pwd`/run.sh ]]; then
 	wget https://raw.githubusercontent.com/zhengcan/tt-on-mac/master/run.sh
+	chmod +x run.sh
 fi
 
 # Run
