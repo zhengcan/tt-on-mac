@@ -11,7 +11,7 @@ if [[ ! -x $(command -v $DOSBOX) ]]; then
 		if [[ $ARCH == "i386" ]]; then
 			ARCH="x86_64"
 		fi
-		wget -P tt_temp https://github.com/joncampbell123/dosbox-x/releases/download/dosbox-x-v${DOSBOX_X_VERSION}/dosbox-x-macosx-$(arch)-${DOSBOX_X_BUILDNO}.zip
+		wget -P tt_temp https://github.com/joncampbell123/dosbox-x/releases/download/dosbox-x-v${DOSBOX_X_VERSION}/dosbox-x-macosx-${ARCH}-${DOSBOX_X_BUILDNO}.zip
 		unzip tt_temp/*.zip -d tt_temp
 		mv tt_temp/dosbox-x/dosbox-x.app .
 		rm -rf tt_temp
